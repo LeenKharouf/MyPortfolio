@@ -7,12 +7,19 @@ body {
 header{
 	background-color: #4d7292;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 5px;
     padding-bottom: 5px;
 }
 
-h1, h2{
+h1{
 	font-family: 'Signika', sans-serif;
+	font-size: 30px;
+}
+
+h2{
+	font-family: 'Signika', sans-serif;
+	font-size: 25px;
+	color: #1d3557;
 }
 
 header h1{
@@ -20,36 +27,32 @@ header h1{
 	font-size: 60px;
 }
 
-header img{
-	border-radius: 40px;
-    width: 240px;
-    border: 5px solid #abc7d6;
+main h1{
+	color: #1d3557;
 }
 
 main{
 	max-width: 1000px;
 	margin: 0 auto;
-	padding: 0 20px 20px 20px;
+	padding: 150px 20px 150px 20px;
 }
+
 
 main img{
 	max-width: 100%;
-}
-
-h2{
-	font-size: 25px;
-	color: #1d3557;
+	border-radius: 40px;
+    width: 240px;
+    border: 0px solid #abc7d6;
 }
 
 p{
-	font-size: 15px;
-	padding: 0 20px 20px 20px;
+	font-size: 20px;
 
 }
 
 a{
-	color: #1d3557;
-	font-size: 25px;
+	color: #4d7292;
+	font-size: 20px;
 }
 a:hover{
 	color: #dc2836;
@@ -64,5 +67,23 @@ footer{
 
 footer p{
 	margin: 0;
+	padding: 0 20px 20px 20px;
+	font-size: 15px;
 }
 
+.container {
+  display: flex;
+}
+
+img {
+  max-width: 100%
+}
+
+.image {
+  flex-basis: 40%
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 40px;
+}
