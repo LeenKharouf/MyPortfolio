@@ -47,12 +47,12 @@ main img{
 
 p{
 	font-size: 20px;
-
 }
 
 a{
 	color: #4d7292;
 	font-size: 20px;
+	text-align: center;
 }
 a:hover{
 	color: #dc2836;
