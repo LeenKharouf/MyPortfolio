@@ -95,6 +95,10 @@ function drawCanvas() {
 
   //loop through each layer and draw it to the canvas
   layer_list.forEach(function (layer, index) {
+
+  	layer.position = getOffset(layer);
+
+
   	if(layer.blend){
   		context.globalCompositeOperation = layer.blend;
   	}
@@ -107,5 +111,80 @@ function drawCanvas() {
   requestAnimationFrame(drawCanvas); //runs through this 60times per second
 
 }
+
+function getOffset(layer){
+	var touch_offset_x = pointer.x * layer.z_index;
+	var touch_offset_y = pointer.y * layer.z_index;
+
+	var offset = {
+		x: touch_offset_x,
+		y: touch_offset_y
+	};
+	return offset;
+}
+
+
+////// SO FAR THE IMAGE IS PERFECTLY STILL
+
+
+//Touch and mouse controls
+
+var moving = false;
+
+var pointer_initial = {
+	x:0,
+	y:0
+}
+
+var pointer = {
+	x:0,
+	y:0
+}
+
+canvas.addEventListener('touchstart', pointerStart);
+canvas.addEventListener('mousedown', pointerStart);
+
+function pointerStart(event){
+	moving = true;
+	// alert('hello, you touched the screen!'); tester
+	if(event.type == 'touchstart'){
+		alert('touch');
+		pointer_initial.x = event.touches[0].clientX;
+		pointer_initial.y = event.touches[0].clientY;
+	}else if(event.type == 'mousedown'){
+		alert('mouse');
+		pointer_initial.x = event.clientX;
+		pointer_initial.y = event.clientY;
+	}
+}
+
+window.addEventListener('touchmove', pointerMove);
+window.addEventListener('mousedown', pointerMove);
+
+function pointerMove(event){
+	event.prevenetDefault();
+	if(moving==true){
+		var current_x = 0;
+		var current_y = 0;
+		if(event.type == 'touchmove'){
+			current_x = event.touches[0].clientX;
+			current_y = event.touches[0].clientY;
+		} else if(event.type == 'mousedown'){
+			current_x = event.clientX;
+			current_y = event.clientY;
+		}
+		pointer.x = current_x;
+		pointer.y = current_y;
+	}
+}
+
+
+
+
+
+
+
+
+
 
 
