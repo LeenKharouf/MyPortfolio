@@ -113,8 +113,10 @@ function drawCanvas() {
 }
 
 function getOffset(layer){
-	var touch_offset_x = pointer.x * layer.z_index;
-	var touch_offset_y = pointer.y * layer.z_index;
+var touch_multiplier = 0.1;
+
+	var touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
+	var touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
 
 	var offset = {
 		x: touch_offset_x,
@@ -148,11 +150,11 @@ function pointerStart(event){
 	moving = true;
 	// alert('hello, you touched the screen!'); tester
 	if(event.type == 'touchstart'){
-		alert('touch');
+		//alert('touch');
 		pointer_initial.x = event.touches[0].clientX;
 		pointer_initial.y = event.touches[0].clientY;
 	}else if(event.type == 'mousedown'){
-		alert('mouse');
+		//alert('mouse');
 		pointer_initial.x = event.clientX;
 		pointer_initial.y = event.clientY;
 	}
@@ -162,7 +164,7 @@ window.addEventListener('touchmove', pointerMove);
 window.addEventListener('mousedown', pointerMove);
 
 function pointerMove(event){
-	event.prevenetDefault();
+	event.preventDefault();
 	if(moving==true){
 		var current_x = 0;
 		var current_y = 0;
@@ -178,9 +180,27 @@ function pointerMove(event){
 	}
 }
 
+canvas.addEventListener('touchmove', function(event){
+	event.preventDefault();
+});
 
+canvas.addEventListener('mousemove', function(event){
+	event.preventDefault();
+});
 
+window.addEventListener('touchend', function(event){
+	endGesture();
+});
 
+window.addEventListener('mouseup', function(event){
+	endGesture();
+});
+
+function endGesture(){
+	moving = false;
+	pointer.x = 0;
+	pointer.y = 0;
+}
 
 
 
