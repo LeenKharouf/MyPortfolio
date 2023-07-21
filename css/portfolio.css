@@ -8,7 +8,7 @@ body {
 header{
 	background-color: #4d7292;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 0px;
     padding-bottom: 5px;
 }
 
@@ -84,49 +84,47 @@ footer p{
 }
 
 .container {
-  display: flex;
+  	display: flex;
 }
 
 img {
-  max-width: 100%
+  	max-width: 100%
 }
 
 .image {
-  flex-basis: 40%
+  	flex-basis: 40%
 }
 
 .text {
-  font-size: 20px;
-  padding-left: 40px;
+  	font-size: 20px;
+  	padding-left: 40px;
 }
 
 
 .row {
-  display: flex;
+  	display: flex;
 }
 
 .column {
-  flex: 33.33%;
-  padding: 5px;
+  	flex: 33.33%;
+  	padding: 5px;
 }
-
-
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #4d7292;
-  overflow: hidden;
-  
+  	background-color: #4d7292;
+  	overflow: hidden;
+
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 8px 15px;
-  text-decoration: none;
-  font-size: 17px;
+	  float: left;
+	  color: white;
+	  text-align: center;
+	  padding: 8px 15px;
+	  text-decoration: none;
+	  font-size: 17px;
 }
 
 /* Change the color of links on hover */
@@ -135,8 +133,27 @@ img {
   color: #4d7292;
 }
 
-/* Add a color to the active/current link */
+/* Add a color to the active/current link 
 .topnav a.active {
   background-color: white;
   color: #4d7292;
+}
+*/
+
+
+.image-container{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	max-width: 100%;
+	position: relative;
+}
+
+.canvas{
+	width: auto;
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+	margin: auto;
+	background-color: red;
 }
