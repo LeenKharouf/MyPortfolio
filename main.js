@@ -93,27 +93,36 @@ function drawCanvas() {
   //clear whatever is on canvas
   context.clearRect(0, 0, canvas.width, canvas.height);
 
+  // Calculate the parallax offset based on mouse position
+  var parallax_offset_x = pointer.x * 0.02;
+  var parallax_offset_y = pointer.y * 0.02;
+
   //loop through each layer and draw it to the canvas
   layer_list.forEach(function (layer, index) {
+    // Calculate the parallax position for each layer based on its z_index
+    var parallax_x = -parallax_offset_x * layer.z_index;
+    var parallax_y = -parallax_offset_y * layer.z_index;
 
-  	layer.position = getOffset(layer);
+    layer.position = {
+      x: getOffset(layer).x + parallax_x,
+      y: getOffset(layer).y + parallax_y,
+    };
 
-
-  	if(layer.blend){
-  		context.globalCompositeOperation = layer.blend;
-  	}
-  	else{
-  	  	context.globalCompositeOperation = 'normal';
-  	}
-  	context.globalAlpha = layer.opacity;
+    if (layer.blend) {
+      context.globalCompositeOperation = layer.blend;
+    } else {
+      context.globalCompositeOperation = 'normal';
+    }
+    context.globalAlpha = layer.opacity;
     context.drawImage(layer.image, layer.position.x, layer.position.y);
-  }); // <-- Missing closing parenthesis
-  requestAnimationFrame(drawCanvas); //runs through this 60times per second
+  });
 
+  requestAnimationFrame(drawCanvas);
 }
 
+
 function getOffset(layer){
-var touch_multiplier = 0.1;
+var touch_multiplier = 0.01;
 
 	var touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
 	var touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
@@ -146,39 +155,38 @@ var pointer = {
 canvas.addEventListener('touchstart', pointerStart);
 canvas.addEventListener('mousedown', pointerStart);
 
-function pointerStart(event){
-	moving = true;
-	// alert('hello, you touched the screen!'); tester
-	if(event.type == 'touchstart'){
-		//alert('touch');
-		pointer_initial.x = event.touches[0].clientX;
-		pointer_initial.y = event.touches[0].clientY;
-	}else if(event.type == 'mousedown'){
-		//alert('mouse');
-		pointer_initial.x = event.clientX;
-		pointer_initial.y = event.clientY;
-	}
+function pointerStart(event) {
+  moving = true;
+  if (event.type == 'touchstart') {
+    pointer_initial.x = event.touches[0].clientX;
+    pointer_initial.y = event.touches[0].clientY;
+  } else if (event.type == 'mousedown') {
+    pointer_initial.x = event.clientX;
+    pointer_initial.y = event.clientY;
+  }
 }
+
 
 window.addEventListener('touchmove', pointerMove);
 window.addEventListener('mousedown', pointerMove);
 
-function pointerMove(event){
-	event.preventDefault();
-	if(moving==true){
-		var current_x = 0;
-		var current_y = 0;
-		if(event.type == 'touchmove'){
-			current_x = event.touches[0].clientX;
-			current_y = event.touches[0].clientY;
-		} else if(event.type == 'mousedown'){
-			current_x = event.clientX;
-			current_y = event.clientY;
-		}
-		pointer.x = current_x;
-		pointer.y = current_y;
-	}
+function pointerMove(event) {
+  event.preventDefault();
+  if (moving == true) {
+    var current_x = 0;
+    var current_y = 0;
+    if (event.type == 'touchmove') {
+      current_x = event.touches[0].clientX;
+      current_y = event.touches[0].clientY;
+    } else if (event.type == 'mousemove') {
+      current_x = event.clientX;
+      current_y = event.clientY;
+    }
+    pointer.x = current_x - pointer_initial.x; // Calculate the offset relative to initial position
+    pointer.y = current_y - pointer_initial.y; // Calculate the offset relative to initial position
+  }
 }
+
 
 canvas.addEventListener('touchmove', function(event){
 	event.preventDefault();
