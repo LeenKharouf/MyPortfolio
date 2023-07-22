@@ -140,35 +140,32 @@ var touch_multiplier = 0.3;
 
 //Touch and mouse controls
 
+// ... (your existing code)
+
+// Touch and mouse controls
 var moving = false;
-
-var pointer_initial = {
-	x:0,
-	y:0
-}
-
-var pointer = {
-	x:0,
-	y:0
-}
+var pointer_initial = { x: 0, y: 0 };
+var pointer = { x: 0, y: 0 };
 
 canvas.addEventListener('touchstart', pointerStart);
 canvas.addEventListener('mousedown', pointerStart);
 
 function pointerStart(event) {
+  event.preventDefault();
   moving = true;
   if (event.type == 'touchstart') {
     pointer_initial.x = event.touches[0].clientX;
     pointer_initial.y = event.touches[0].clientY;
+    // Set the initial touch position only once when the touch starts
   } else if (event.type == 'mousedown') {
     pointer_initial.x = event.clientX;
     pointer_initial.y = event.clientY;
+    // Set the initial mouse position only once when the mouse click starts
   }
 }
 
-
 window.addEventListener('touchmove', pointerMove);
-window.addEventListener('mousedown', pointerMove);
+window.addEventListener('mousemove', pointerMove);
 
 function pointerMove(event) {
   event.preventDefault();
@@ -186,6 +183,8 @@ function pointerMove(event) {
     pointer.y = current_y - pointer_initial.y; // Calculate the offset relative to initial position
   }
 }
+
+// ... (your existing code)
 
 
 canvas.addEventListener('touchmove', function(event){
