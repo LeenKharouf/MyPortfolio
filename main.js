@@ -1,6 +1,11 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 
+
+// get ref to loading screen
+var loading_screen = document.getElementById('loading');
+
+var loaded = false;
 var load_counter = 0;
 
 var background = new Image();
@@ -83,15 +88,26 @@ layer_list.forEach(function (layer, index) {
   layer.image.onload = function () {
     load_counter += 1;
     if (load_counter >= layer_list.length) {
+    	hideLoading(); //hide loading screen
       requestAnimationFrame(drawCanvas); //runs through this 60times per second
     }
   };
   layer.image.src = layer.src;
 });
 
+function hideLoading(){
+	loading_screen.classList.add('hidden');
+}
+
+
 function drawCanvas() {
   //clear whatever is on canvas
   context.clearRect(0, 0, canvas.width, canvas.height);
+
+  var rotate_x = (pointer.y * -0.15) + (motion.y * -1.2);
+  var rotate_y = (pointer.x * 0.15) + (motion.x * 1.2);
+
+  var transform_string = "rotateX(" + rotate_x + "deg) rotateY("+rotate_y + "deg)";
 
   // Calculate the parallax offset based on mouse position
   var parallax_offset_x = pointer.x * 0.02;
@@ -127,20 +143,19 @@ var touch_multiplier = 0.1;
 	var touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
 	var touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
 
+var motion_multiplier = 2.5;
+	var motion_offset_x = motion.x * layer.z_index;
+	var motion_offset_y = motion.y * layer.z_index;
+
 	var offset = {
-		x: touch_offset_x,
-		y: touch_offset_y
+		x: touch_offset_x + motion_offset_x,
+		y: touch_offset_y + motion_offset_y
 	};
 	return offset;
 }
 
 
 ////// SO FAR THE IMAGE IS PERFECTLY STILL
-
-
-//Touch and mouse controls
-
-// ... (your existing code)
 
 // Touch and mouse controls
 var moving = false;
@@ -210,6 +225,56 @@ function endGesture(){
 }
 
 
+//motion controls for tilting
+
+var motion_initial = {
+	x:null,
+	y:null
+}
+
+
+var motion = {
+	x:0,
+	y:0
+}
+
+// listen to gyroscope
+window.addEventListener('deviceorientation', function(event){
+	//if this is the first time through
+	if(!motion_initial.x && !motion_initial.y){
+		motion_initial.x = event.beta;
+		motion_initial.y = event.gamma;
+	}
+	if(window.orientation == 0){
+	// device is in portrait orientation
+		motion.x = event.gamma - motion_initial.y;
+		motion.y = event.beta - motion_initial.x;
+
+	}
+	if(window.orientation == 90){
+	// device is in landscape left
+		motion.x = event.beta - motion_initial.x;
+		motion.y = event.gamma - motion_initial.y;
+	}
+	if(window.orientation == -90){
+	// device is in landscape right
+		motion.x = -event.beta + motion_initial.x;
+		motion.y = event.gamma - motion_initial.y;
+
+	}
+	else{
+	// device is upside down
+		motion.x = -event.gamma + motion_initial.y;
+		motion.y = -event.beta + motion_initial.x;
+	}
+});
+
+//
+
+window.addEventListener('orientationchange', function(event){
+	motion_initial.x = 0;
+	motion_initial.y = 0;
+});
 
 
 
