@@ -15,12 +15,12 @@ header{
 h1{
 
 	font-family: 'Slackey', cursive;
-	font-size: 30px;
+	font-size: 50px;
 }
 
 h2{
 	font-family:'Signika', sans-serif;
-	font-size: 25px;
+	font-size: 30px;
 	color: #1d3557;
 }
 
@@ -32,7 +32,7 @@ main h3{
 
 header h1{
 	color: white;
-	font-size: 60px;
+	font-size: 125px;
 
 }
 
@@ -42,7 +42,7 @@ main h1{
 }
 
 main{
-	max-width: 1000px;
+	max-width: 1100px;
 	margin: 0 auto;
 	padding: 100px 20px 100px 20px;
 }
@@ -73,12 +73,15 @@ footer{
 	background-color: #4d7292;
 	text-align: center;
 	color: white;
-	padding: 50px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 footer p{
 	margin: 0;
-	padding: 0 20px 20px 20px;
+	padding: 0 0px 0px 0px;
 	font-size: 15px;
 	color: white;
 }
@@ -96,8 +99,9 @@ img {
 }
 
 .text {
-  	font-size: 20px;
+  	font-size: 40px;
   	padding-left: 40px;
+  	padding-top: 40px;
 }
 
 
@@ -107,13 +111,14 @@ img {
 
 .column {
   	flex: 33.33%;
-  	padding: 5px;
+  	padding: 15px;
 }
 
 /* Add a black background color to the top navigation */
 .topnav {
   	background-color: #4d7292;
   	overflow: hidden;
+  	color: white;
 
 }
 
@@ -125,6 +130,7 @@ img {
 	  padding: 8px 15px;
 	  text-decoration: none;
 	  font-size: 17px;
+
 }
 
 /* Change the color of links on hover */
@@ -185,6 +191,25 @@ img {
 .loading-screen.hidden{
 	visibility: hidden;
 	opacity: 0;
+}
+
+
+.astronaut{
+	 padding-left: 250px;
+     padding-right: 250px;
+}
+
+h2.highlight{
+	  color: white;
+}
+
+/* Rounded border */
+hr.rounded {
+  border-top: 8px solid #4d7292;
+  border-radius: 5px;
+  margin-left: 40px;
+  margin-right: 40px;
+ 
 }
 
 
