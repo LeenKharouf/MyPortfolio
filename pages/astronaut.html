@@ -6,8 +6,11 @@
 <head>
     <title>Parallax</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/css/uikit.min.css" />
+
 
     <link rel="stylesheet" type="text/css" href="../css/portfolio.css">
+    <link rel="stylesheet" type="text/css" href="../css/uikit.css">
     <meta name="author" content="Leen Kharoud">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link href="https://fonts.googleapis.com/css2?family=Signika:wght@500&family=Slackey&display=swap" rel="stylesheet">
@@ -22,19 +25,55 @@
 
 </head>
 <header>
-    <!-- Your header content goes here -->
-    <div class="topnav">
-        <!--<a class="active" href="../index.html">HOME</a>-->
-        <!-- <a title="VIEW GALLERY" href="../pages/gallery.html">GALLERY</a> -->
-        <a title="PARALLAX" href="astronaut.html">PARALLAX</a>
-        <a href="https://www.instagram.com/leenkharouf.art/" target="_blank">INSTAGRAM</a>
-    </div>
 
-    <h1>PARALLAX</h1>
+
+    <div class="topnav">
+<nav class="uk-navbar-container">
+    <div class="uk-container">
+        <div uk-navbar>
+
+            <div class="uk-navbar-center">
+
+                <ul class="uk-navbar-nav">
+            <li>
+            <a class="uk-navbar-toggle" href="#">
+                <span uk-navbar-toggle-icon></span>
+            </a>
+                <div class="uk-navbar-center">
+                    <ul class="uk-navbar-nav">
+
+                          <li class="uk-parent"><a href="../index.html">Home</a></li>
+                            <li class="uk-active"><a href="../pages/astronaut.html">Parallax</a></li>
+
+                          <a class="uk-navbar-item uk-logo topnav" href="#">Leen Kharouf</a>
+
+                          <li class="uk-parent"><a href="../pages/astronaut.html">Parallax</a></li>
+                        <li class="uk-parent"><a href="https://www.instagram.com/leenkharouf.art/">Instagram</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</nav>
+</div>
+
+    <!-- Your header content goes here
+    <div class="topnav">
+          <a title ="Homepage" href="../index.html">Home</a>
+          <a title="VIEW GALLERY" href="../pages/gallery.html">Gallery</a>
+        <a class="active" href="../pages/astronaut.html">Parallax</a>
+
+    
+          <a href="https://www.instagram.com/leenkharouf.art/" target="_blank">Instagram</a>
+        </div>
+-->
+    <h1 class="uk-heading-line uk-text-center"><span>Parallax</span></h1>
     <h2 class="highlight">Move your finger around to see layers move! Or...click and drag!</h2>
 </header>
 
-<body>
+<body class="highlight">
     <div class="main-content"> <!-- Add the main content container -->
         <div class="image-container">
             <canvas class="canvas" width="900" height="1200" id="canvas"></canvas>
@@ -45,7 +84,7 @@
 
         <div class="astronaut">
 
-     <h2>Welcome to an Interactive Art Experience!</h2>
+     <h1>Welcome to an Interactive Art Experience!</h1>
 
     <h2>Using Procreate</h2>
     <p>This illustration was created in Procreate! The key to this 3D effect is the use of layers. Just like stacking sheets, I arranged different elements of the artwork on separate layers.</p>

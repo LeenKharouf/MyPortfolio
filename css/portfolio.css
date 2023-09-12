@@ -1,43 +1,53 @@
 body {
 	margin: 0;
-	font-family: 'Signika', sans-serif;
-	background-color: ;
+/*	font-family: 'Regular','Signika', sans-serif;*/
+	background-color: whitesmoke;
+	  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 }
 
 header{
-	background-color: #4d7292;
+	background-color: whitesmoke;
     text-align: center;
     padding-top: 0px;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
+    color: ;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
 }
 
 h1{
 
-	font-family: 'Slackey', cursive;
-	font-size: 50px;
+	/*font-family: 'Regular','Slackey', cursive;*/
+	font-size: 30px;
+	color: #AE6E4E;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+;
 }
 
 h2{
-	font-family:'Signika', sans-serif;
-	font-size: 30px;
-	color: #1d3557;
+	/*font-family: 'Regular','Signika', sans-serif;*/
+	font-size: 20px;
+	color: #CC9767;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
 }
 
 main h3{
-	font-family:'Signika', sans-serif;
+	/*font-family: 'Regular','Signika', sans-serif;*/
 	font-size: 100px;
 	color: red;
 }
 
 header h1{
-	color: white;
-	font-size: 125px;
+	color: #AE6E4E;
+	font-size: 40px;
 
 }
 
 main h1{
 	color: #1d3557;
+	color: #AE6E4E;
 	text-align: center;
 }
 
@@ -57,7 +67,7 @@ main img{
 
 p{
 	font-size: 20px;
-	color: #4d7292;
+	color: #CC9767;
 }
 
 a{
@@ -70,11 +80,11 @@ a:hover{
 }
 
 footer{
-	background-color: #4d7292;
+	background-color: white;
 	text-align: center;
-	color: white;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	color: #AE6E4E;
+	padding-top: 25px;
+	padding-bottom: 25px;
 	padding-left: 0px;
 	padding-right: 0px;
 }
@@ -83,26 +93,35 @@ footer p{
 	margin: 0;
 	padding: 0 0px 0px 0px;
 	font-size: 15px;
-	color: white;
+	color: #AE6E4E;
 }
 
 .container {
   	display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 img {
-  	max-width: 100%
+
+  	max-width: 100%;
+    height: auto;
 }
 
 .image {
-  	flex-basis: 40%
+  	flex-basis: 40%;
+  	max-width: 100%;
+    height: auto;
+    margin-right: 0px; /* Add margin for spacing */
 }
 
 .text {
   	font-size: 40px;
   	padding-left: 40px;
   	padding-top: 40px;
+  	flex: 1;
 }
+
 
 
 .row {
@@ -116,16 +135,18 @@ img {
 
 /* Add a black background color to the top navigation */
 .topnav {
-  	background-color: #4d7292;
+  	background-color: white;
   	overflow: hidden;
-  	color: white;
+  	color: #CC9767;
 
 }
+
+
 
 /* Style the links inside the navigation bar */
 .topnav a {
 	  float: left;
-	  color: white;
+	  color: #AE6E4E;
 	  text-align: center;
 	  padding: 8px 15px;
 	  text-decoration: none;
@@ -135,16 +156,16 @@ img {
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: white;
-  color: #4d7292;
+  background-color: whitesmoke;
+  color: #AE6E4E;
 }
 
-/* Add a color to the active/current link 
+/* Add a color to the active/current link */
 .topnav a.active {
-  background-color: white;
-  color: #4d7292;
+  background-color: whitesmoke;
+  color: #CC9767;
 }
-*/
+
 
 
 .image-container{
@@ -200,7 +221,11 @@ img {
 }
 
 h2.highlight{
-	  color: white;
+	  color: #CC9767;
+}
+
+body.highlight{
+	background: white;
 }
 
 /* Rounded border */

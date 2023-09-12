@@ -3,6 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="uikit/dist/js/uikit-icons.min.js"></script>
+
 	<link rel="icon" href="img/clay.jpg">
 	<title>Leen Kharouf</title>
 
@@ -18,10 +20,15 @@
 	<link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
 
 	<link href="https://fonts.googleapis.com/css2?family=Glory&display=swap" rel="stylesheet">
+
+	<link href="fonts/Regular.ttf" rel="stylesheet">
+
 	<!-- End of font styles -->
 
 	<!-- Linking CSS file to apply styles to the HTML elements -->
 	<link rel="stylesheet" type="text/css" href="css/portfolio.css">
+	<link rel="stylesheet" type="text/css" href="css/uikit.css">
+
 </head>
 <!-- Set the initial scale and maximum scale for mobile responsiveness -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -29,31 +36,99 @@
 
 <!-- Header element -->
 <header>
-	<!-- Navigation bar -->
+
+<div class="topnav">
+<nav class="uk-navbar-container">
+    <div class="uk-container">
+        <div uk-navbar>
+
+            <div class="uk-navbar-center">
+
+                <div class="uk-navbar-center-left">
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active"><a href="#">Home</a></li>
+                        <li>
+                            <a href="pages/gallery.html">Gallery</a>
+                           
+                        </li>
+                    </ul>
+                </div>
+                <a class="uk-navbar-item uk-logo" href="#">Leen Kharouf</a>
+                <div class="uk-navbar-center-right">
+                    <ul class="uk-navbar-nav">
+                        <li><a href="https://www.instagram.com/leenkharouf.art/">Instagram</a></li>
+                        <li><a href="pages/astronaut.html">Parallax</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</nav>
+</div>
+	<!-- Navigation bar 
 	<div class="topnav">
-		<!-- Link to the HOME page (active link) -->
-		<a class="active" href="index.html">HOME</a>
-		<!-- Link to the GALLERY page -->
-		<a title="VIEW GALLERY" href="pages/gallery.html">GALLERY</a>
-		<a title="PARALLAX" href="pages/astronaut.html">PARALLAX</a>
-		<!-- External link to INSTAGRAM profile in a new tab -->
-		<a href="https://www.instagram.com/leenkharouf.art/" target="_blank">INSTAGRAM</a>
+		Link to the HOME page (active link) 
+		<a class="active" href="index.html">Home</a>
+		
+		<a title="VIEW GALLERY" href="pages/gallery.html">Gallery</a>
+		<a title="PARALLAX" href="pages/astronaut.html">Parallax</a>
+		<a href="https://www.instagram.com/leenkharouf.art/" target="_blank">Instagram</a>
 	</div>
+<h1 class="uk-heading-line uk-text-center"><span>Leen Kharouf</span></h1> -->
+
+
+
 
 	<!-- Main heading of the page -->
-	<h1>LEEN KHAROUF</h1>
 </header>
+
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit-icons.min.js"></script>
 
 <!-- Main element -->
 <main>
 	<!-- Container for the main content -->
-	<div class="container">
-		<!-- Container for the image -->
+	<!--<div class="container">
+		-- Container for the image 
 		<div class="image">
-			<!-- Displaying an image with the 'img' tag -->
+			 Displaying an image with the 'img' tag 
 			<img src="img/clay.jpg">
 		</div>
-		<!-- Container for the text content -->
+		Container for the text content 
+</div>-->
+
+
+
+
+
+
+<div class="uk-margin-large uk-card uk-card-default uk-card-large uk-card-body uk-card-hover">
+    
+    
+    <!-- Container for the main content -->
+    <div class="container">
+        <div class="image">
+            <img src="img/clay.jpg" alt="Profile Image">
+        </div>
+        <div class="text">
+        	<h1>This is me</h1>
+            <p>Hi! I'm Leen Kharouf and I'm a third year computer engineering student at NYU Abu Dhabi. </p>
+              <a href="https://www.instagram.com/leenkharouf.art/" class="uk-icon-button" uk-icon="instagram"></a>
+ 				<a href="http://www.linkedin.com/in/leen-kharouf" class="uk-icon-button" uk-icon="linkedin"></a>
+        </div>
+    </div>
+
+   <!-- <p>This is under right now</p>-->
+</div>
+
+
+
+
+
 
 
 		<div class="text">
